@@ -74,16 +74,20 @@ $ npm i vue-template-compiler --save-dev
 
 | vue 1.0+ | vue 2.0 | Description |
 | - | - | - |
-| init | beforeCreate | 组件实例刚被创建，组件属性计算之前，如 data 属性等 |
-| created | created | 组件实例创建完成，属性已绑定，但 DOM 还未生成，$el 属性还不存在 |
+| init | beforeCreate | 组件实例刚被创建，组件属性计算之前，如 `data` 属性等 |
+| created | created | 组件实例创建完成，属性已绑定，但 `DOM` 还未生成，`$el` 属性还不存在 |
 | beforeCompile | beforeMount | 模板编译/挂载之前 |
 | compiled | mounted | 模板编译/挂载之后 |
-| ready | mounted | 模板编译/挂载之后（不保证组件已在 document 中） |
+| ready | mounted | 模板编译/挂载之后（不保证组件已在 `document` 中） |
 | - | beforeUpdate | 组件更新之前 |
 | - | updated | 组件更新之后 |
-| - | activated | for keep-alive，组件被激活时调用 |
-| - | deactivated | for keep-alive，组件被移除时调用 |
+| - | activated | `for keep-alive`，组件被激活时调用 |
+| - | deactivated | `for keep-alive`，组件被移除时调用 |
 | attached | - | 不用了还说啥哪... |
 | detached | - | 那就不说了吧... |
 | beforeDestory | beforeDestory | 组件销毁前调用 |
 | destoryed | destoryed | 组件销毁后调用 |
+
+## License
+
+MIT
