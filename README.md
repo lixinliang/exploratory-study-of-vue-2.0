@@ -1,5 +1,7 @@
 # Exploratory study of Vue 2.0
-> [Vue](https://vuejs.org/)
+> 📒experience summary.
+
+* https://vuejs.org/
 
 # Import Vue 2.0
 
@@ -73,7 +75,7 @@ $ npm i vue-template-compiler --save-dev
 * 生命周期钩子对照表
 
 | vue 1.0+ | vue 2.0 | Description |
-| - | - | - |
+|---|---|---|
 | init | beforeCreate | 组件实例刚被创建，组件属性计算之前，如 `data` 属性等 |
 | created | created | 组件实例创建完成，属性已绑定，但 `DOM` 还未生成，`$el` 属性还不存在 |
 | beforeCompile | beforeMount | 模板编译/挂载之前 |
