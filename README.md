@@ -14,7 +14,7 @@ import Vue from 'vue';
 [Vue warn]: You are using the runtime-only build of Vue where the template option is not available. Either pre-compile the templates into render functions, or use the compiler-included build. (found in root instance)
 ```
 
-* Must require the correct file
+* Must require the correct file.
 
 ```js
 // Not good
@@ -29,7 +29,7 @@ const alias = {
 
 # Vue packages
 
-* Cause [Yarn](https://yarnpkg.com/) lock the packages version
+* Cause [Yarn](https://yarnpkg.com/) lock the packages version.
 
 ```
 Vue packages version mismatch:
@@ -42,7 +42,7 @@ If you are using vue-loader@>=10.0, simply update vue-template-compiler.
 If you are using vue-loader@<10.0 or vueify, re-installing vue-loader/vueify should bump vue-template-compiler to the latest.
 ```
 
-* Upgrate your packages, or re-install them
+* Upgrate your packages, or re-install them.
 
 ```
 $ npm i vue --save-dev
@@ -50,11 +50,48 @@ $ npm i vue-loader --save-dev
 $ npm i vue-template-compiler --save-dev
 ```
 
+# Root element
+
+* Use single element `<app>` in `<body>`.
+* `index.html`.
+
+```html
+<body>
+    <app></app>
+</body>
+```
+
+* `index.js`.
+
+```js
+// Not work
+new Vue({
+    el : 'body',
+    components : {
+        app,
+    },
+});
+```
+
+```
+[Vue warn]: Do not mount Vue to <html> or <body> - mount to normal elements instead.
+```
+
+* Use `render` to render component
+* `index.js`.
+
+```js
+new Vue({
+    el : 'app',
+    render : ( createElement ) => createElement(app),
+});
+```
+
 # Babel ES2015
 
-* Vue Loader 1.x used Babel ES2015 as defaults
-* Although, Babel is still supported [@see](https://github.com/vuejs/vue-loader/blob/70ca3ff64c1ae69bb4b93a142e937fccd2f06c89/lib/loader.js#L62)
-* But, we should config by myself
+* Vue Loader 1.x used Babel ES2015 as defaults.
+* Although, Babel is still supported. [@see](https://github.com/vuejs/vue-loader/blob/70ca3ff64c1ae69bb4b93a142e937fccd2f06c89/lib/loader.js#L62)
+* But, we should config by ourselves.
 
 ```js
 // webpack
@@ -67,7 +104,28 @@ $ npm i vue-template-compiler --save-dev
 }
 ```
 
-* Or, you can config in `.babelrc` as you like
+* Or,
+
+```js
+// webpack
+{
+    module : {
+        loaders : [
+            {
+                test : /\.vue$/,
+                loader : 'vue',
+                options : {
+                    loaders : {
+                        js : 'babel?presets[]=es2015',
+                    },
+                },
+            },
+        ],
+    },
+}
+```
+
+* Or, you can config in `.babelrc` as you like.
 
 # Lifecycle hooks
 > from https://segmentfault.com/a/1190000006435886#articleHeader4
